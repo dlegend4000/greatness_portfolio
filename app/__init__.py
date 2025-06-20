@@ -1,7 +1,9 @@
 import os
+import json
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 import json
+
 
 load_dotenv()
 app = Flask(__name__)
@@ -10,15 +12,21 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    # Get and parse education information from .env
-    education_entries = json.loads(os.getenv("EDUCATION_JSON", "[]"))
 
-    # Get and parse visited countries from .env
-    countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
-    visited_countries = [code.strip() for code in countries_str.split(",") if code.strip()]
+    try:
+        education_entries = json.loads(os.getenv("EDUCATION_JSON", "[]"))
+        experiences = json.loads(os.getenv("EXPERIENCE_JSON", "[]"))
+        countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
+        visited_countries = [code.strip() for code in countries_str.split(",") if code.strip()]
+    except json.JSONDecodeError as e:
+        print("Error parsing EXPERIENCE_JSON:", e)
+        education = []
+        experiences = []
+        countries = []
 
-    return render_template('index.html', title="MLH Fellow", educations=education_entries, countries=visited_countries, url=os.getenv("URL"))
 
+    return render_template('index.html', title="MLH Fellow", educations=education_entries, experiences=experiences, education=education, countries=visited_countries, url=os.getenv("URL"))
+  
 @app.route('/hobbies')
 def hobby():
     img_path_prefix = "/static/img/hobby_imgs/"
