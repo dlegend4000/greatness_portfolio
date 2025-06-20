@@ -2,6 +2,7 @@ import os
 import json
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+import json
 
 
 load_dotenv()
@@ -10,50 +11,31 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-#     return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
 
-# @app.route('/hobbies')
-# def hobby():
-#     img_path_prefix = "/static/img/hobby_imgs/"
-    
-#     # Get and parse hobbies and image file names from .env
-#     raw_hobbies = os.getenv("HOBBIES", "")
-#     hobbies_name = [h.strip() for h in raw_hobbies.split(",") if h.strip()]
-    
-#     raw_hobbies_imgs = os.getenv("HOBBIES_IMGS", "")
-#     hobbies_imgs = [img_path_prefix + img.strip() for img in raw_hobbies_imgs.split(",") if img.strip()]
-    
-#     # Zip hobby names with corresponding image paths
-#     hobbies = list(zip(hobbies_name, hobbies_imgs))
-
-#     return render_template('hobby.html', title="Hobbies", hobbies=hobbies)
 
     try:
+        education_entries = json.loads(os.getenv("EDUCATION_JSON", "[]"))
         experiences = json.loads(os.getenv("EXPERIENCE_JSON", "[]"))
-        education= json.loads(os.getenv("EDUCATION_JSON", "[]"))
-        hobbies= json.loads(os.getenv("HOBBIES_JSON", "[]"))
+        countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
+        visited_countries = [code.strip() for code in countries_str.split(",") if code.strip()]
     except json.JSONDecodeError as e:
         print("Error parsing EXPERIENCE_JSON:", e)
-        experiences = []
         education = []
-        hobbies = []
+        experiences = []
+        countries = []
 
-   
 
-    return render_template('index.html', title="MLH Fellow", experiences=experiences, education=education, hobbies=hobbies, url=os.getenv("URL"))
+    return render_template('index.html', title="MLH Fellow", educations=education_entries, experiences=experiences, education=education, countries=visited_countries, url=os.getenv("URL"))
   
 @app.route('/hobbies')
 def hobby():
     img_path_prefix = "/static/img/hobby_imgs/"
     
     # Get and parse hobbies and image file names from .env
-    raw_hobbies = os.getenv("HOBBIES", "")
-    hobbies_name = [h.strip() for h in raw_hobbies.split(",") if h.strip()]
+    raw_hobby_json = os.getenv("HOBBIES_JSON", "[]")
+    parsed_hobby = json.loads(raw_hobby_json)
     
-    raw_hobbies_imgs = os.getenv("HOBBIES_IMGS", "")
-    hobbies_imgs = [img_path_prefix + img.strip() for img in raw_hobbies_imgs.split(",") if img.strip()]
-    
-    # Zip hobby names with corresponding image paths
-    hobbies = list(zip(hobbies_name, hobbies_imgs))
+    # Add full image path to each hobby
+    hobbies = [{"name": item["name"], "img": img_path_prefix + item["img"]} for item in parsed_hobby]
 
     return render_template('hobby.html', title="Hobbies", hobbies=hobbies)

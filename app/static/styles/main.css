@@ -11,13 +11,13 @@ body {
     margin: 0px;
 }
 
-.nav-bar {
-    width: 100%;
-    display: inline-block;
-    background-color: #1C539F;
-    font-family: "Roboto", serif;
-    font-weight: 700 !important;
-    padding-top: 10px;
+.navbar-nav .nav-link {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: black !important;
 }
 
 .nav-content .logo-touch-target {
@@ -95,6 +95,18 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+/* styles for visited maps */
+svg { overflow: hidden; }
+.hoverinfo {
+    position: absolute;
+    background: white;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 12px;
+    z-index: 1000;
 
 .about-section {
     padding: 2rem;
@@ -212,4 +224,5 @@ body {
 
 .hobbies-section ul li {
   margin-bottom: 0.5em;       
+
 }
