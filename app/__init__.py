@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 app = Flask(__name__)
@@ -10,19 +11,7 @@ app = Flask(__name__)
 def index():
 
     # Get and parse education information from .env
-    raw_educations = os.getenv("EDUCATION", "") # Debugging line
-    education_entries = []
-
-    for edu in raw_educations.split("\n"):
-        fields = [f.strip() for f in edu.split("|")]
-        if len(fields) == 5:
-            education_entries.append({
-                "university": fields[0],
-                "major": fields[1],
-                "degree": fields[2],
-                "location": fields[3],
-                "time": fields[4]
-            })
+    education_entries = json.loads(os.getenv("EDUCATION_JSON", "[]"))
 
     # Get and parse visited countries from .env
     countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
@@ -35,13 +24,10 @@ def hobby():
     img_path_prefix = "/static/img/hobby_imgs/"
     
     # Get and parse hobbies and image file names from .env
-    raw_hobbies = os.getenv("HOBBIES", "")
-    hobbies_name = [h.strip() for h in raw_hobbies.split(",") if h.strip()]
+    raw_hobby_json = os.getenv("HOBBIES_JSON", "[]")
+    parsed_hobby = json.loads(raw_hobby_json)
     
-    raw_hobbies_imgs = os.getenv("HOBBIES_IMGS", "")
-    hobbies_imgs = [img_path_prefix + img.strip() for img in raw_hobbies_imgs.split(",") if img.strip()]
-    
-    # Zip hobby names with corresponding image paths
-    hobbies = list(zip(hobbies_name, hobbies_imgs))
+    # Add full image path to each hobby
+    hobbies = [{"name": item["name"], "img": img_path_prefix + item["img"]} for item in parsed_hobby]
 
     return render_template('hobby.html', title="Hobbies", hobbies=hobbies)
