@@ -51,32 +51,42 @@
 
         <!-- Experience Section -->
     <section class="experience-section">
-        <div class="experience-container">
-            <h2>Experience</h2>
-            <div class="experience">
-                <h3>Software Engineering Intern – JP Morgan Chase & Co.</h3>
-                <p class="date">June 2024 – August 2024</p>
-                <p>
-                    Developed a back-end application using Java Spring Boot, Terraform, Docker, and AWS to perform data validation and quality checks. Created a RESTful API with MySQL to store and manage data, and resolved critical data quality bugs, helping protect the security of over 80 million clients globally.
-                </p>
-            </div>
-
-            <div class="experience">
-                <h3>Data Analyst Intern – Wuxi Biologics</h3>
-                <p class="date">January 2023 – September 2023</p>
-                <p>
-                    Performed analytics and visualizations on large datasets. Automated dashboard generation using R, Python, SQL, and Tableau, improving team efficiency. Resolved key Microsoft SQL issues involving over 50,000 rows of data.
-                </p>
-            </div>
-
-            <div class="experience">
-                <h3>Mechanical Engineering Intern – Silent Aire</h3>
-                <p class="date">July 2022 – September 2022</p>
-                <p>
-                    Conducted pressure/leak analysis and proposed HVAC design improvements for data centers. Produced technical plans and documented SOPs tailored to varying client specifications for hyperscale ventilation systems.
-                </p>
-            </div>
+        <h2>Experience</h2>
+        {% for exp in experiences %}
+        <div class="experience">
+            <h3>{{ exp.role }} – {{ exp.company }}</h3>
+            <p class="date">{{ exp.duration }}</p>
+            <ul>
+                {% for detail in exp.details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+            </ul>
         </div>
+        {% endfor %}
+    </section>
+
+    <section class="education-section">
+        <h2>Education</h2>
+        {% for edu in education %}
+        <div class="education">
+            <h3>{{ edu.degree }} – {{ edu.institution }}</h3>
+            <p class="date">{{ edu.duration }}</p>
+            <ul>
+                {% for detail in edu.details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="hobbies-section">
+        <h2>Hobbies</h2>
+        <ul>
+            {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+            {% endfor %}
+        </ul>
     </section>
 
 </body>
