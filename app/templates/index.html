@@ -32,9 +32,63 @@
 
     <div class="profile">
         <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
+            <img src="./static/img/photo1.jpg">
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <!-- New About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Emmanuel Karibiye, a passionate developer and tech enthusiast.
+                I enjoy building clean, user-friendly web applications and continuously learning new technologies.
+                When I'm not coding, I love music, gaming, exploring new ideas, and collaborating with like-minded creatives.
+            </p>
+        </div>
+    </section>
+
+        <!-- Experience Section -->
+    <section class="experience-section">
+        <h2>Experience</h2>
+        {% for exp in experiences %}
+        <div class="experience">
+            <h3>{{ exp.role }} – {{ exp.company }}</h3>
+            <p class="date">{{ exp.duration }}</p>
+            <ul>
+                {% for detail in exp.details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="education-section">
+        <h2>Education</h2>
+        {% for edu in education %}
+        <div class="education">
+            <h3>{{ edu.degree }} – {{ edu.institution }}</h3>
+            <p class="date">{{ edu.duration }}</p>
+            <ul>
+                {% for detail in edu.details %}
+                <li>{{ detail }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="hobbies-section">
+        <h2>Hobbies</h2>
+        <ul>
+            {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
 </body>
 </html>
+
