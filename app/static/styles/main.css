@@ -95,3 +95,16 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+/* styles for visited maps */
+svg { overflow: hidden; }
+.hoverinfo {
+    position: absolute;
+    background: white;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 12px;
+    z-index: 1000;
+}

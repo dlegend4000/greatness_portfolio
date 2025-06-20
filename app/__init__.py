@@ -24,7 +24,11 @@ def index():
                 "time": fields[4]
             })
 
-    return render_template('index.html', title="MLH Fellow", educations=education_entries, url=os.getenv("URL"))
+    # Get and parse visited countries from .env
+    countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
+    visited_countries = [code.strip() for code in countries_str.split(",") if code.strip()]
+
+    return render_template('index.html', title="MLH Fellow", educations=education_entries, countries=visited_countries, url=os.getenv("URL"))
 
 @app.route('/hobbies')
 def hobby():
