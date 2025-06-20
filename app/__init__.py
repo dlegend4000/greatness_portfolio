@@ -8,7 +8,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+
+    # Get and parse education information from .env
+    raw_educations = os.getenv("EDUCATION", "") # Debugging line
+    education_entries = []
+
+    for edu in raw_educations.split("\n"):
+        fields = [f.strip() for f in edu.split("|")]
+        if len(fields) == 5:
+            education_entries.append({
+                "university": fields[0],
+                "major": fields[1],
+                "degree": fields[2],
+                "location": fields[3],
+                "time": fields[4]
+            })
+
+    return render_template('index.html', title="MLH Fellow", educations=education_entries, url=os.getenv("URL"))
 
 @app.route('/hobbies')
 def hobby():

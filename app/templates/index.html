@@ -15,6 +15,7 @@
         rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
     <title>{{ title }}</title>
 </head>
@@ -36,5 +37,27 @@
         </div>
         <h1>{{ title }}</h1>
     </div>
+
+    <!-- Education -->
+    <div class="container my-5">
+    <h2 class="text-center mb-4">My Education</h2>
+    <div class="row justify-content-center">
+        {% for edu in educations %}
+        <div class="col-md-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+            <h5 class="card-title">{{ edu.university }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ edu.degree }} in {{ edu.major }}</h6>
+            <p class="card-text">
+                <strong>Location:</strong> {{ edu.location }}<br>
+                <strong>Years:</strong> {{ edu.time }}
+            </p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
 </body>
 </html>
