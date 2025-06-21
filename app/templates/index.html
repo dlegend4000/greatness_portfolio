@@ -45,17 +45,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#work">Work Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="hobbies">Hobbies</a>
+                        <a class="nav-link" href="#about-section">About Me</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#education">Education</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience-section">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hobbies">Hobbies</a>
+                    </li>                 
                     <li class="nav-item">
                         <a class="nav-link" href="#map">Visited Map</a>
                     </li>
@@ -66,21 +66,16 @@
 
     <div class="profile">
         <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/photo1.jpg">
+            <img src="{{ about_info.image}}">
         </div>
-        <h1>{{ title }}</h1>
+        <h1>{{ about_info.name }}</h1>
     </div>
 
-  
-    <!-- New About Section -->
-    <section class="about-section">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="about-container">
             <h2>About Me</h2>
-            <p>
-                Hi! I'm Emmanuel Karibiye, a passionate developer and tech enthusiast.
-                I enjoy building clean, user-friendly web applications and continuously learning new technologies.
-                When I'm not coding, I love music, gaming, exploring new ideas, and collaborating with like-minded creatives.
-            </p>
+            <p>{{ about_info.aboutme}}</p>
         </div>
     </section>
   
@@ -105,21 +100,30 @@
         </div>
     </div>
   
-        <!-- Experience Section -->
-    <section class="experience-section">
-        <h2>Experience</h2>
-        {% for exp in experiences %}
-        <div class="experience">
-            <h3>{{ exp.role }} – {{ exp.company }}</h3>
-            <p class="date">{{ exp.duration }}</p>
-            <ul>
-                {% for detail in exp.details %}
-                <li>{{ detail }}</li>
-                {% endfor %}
-            </ul>
+    <!-- Experience Section -->
+    <div class="container my-5" id="experience-section">
+        <h2 class="text-center mb-4">My Experience</h2>
+        <div class="row justify-content-center">
+            {% for exp in experiences %}
+            <div class="col-md-8 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ exp.role }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
+                        <p class="card-text">
+                            <strong>Duration:</strong> {{ exp.duration }}
+                        </p>
+                        <ul class="mb-0">
+                            {% for detail in exp.details %}
+                            <li>{{ detail }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </section>
+    </div>
 
      <!-- Visited Map -->
     <div class="container my-5" id="map">
@@ -177,16 +181,6 @@
             map.resize();
         });
     </script>
-
-
-    <section class="hobbies-section">
-        <h2>Hobbies</h2>
-        <ul>
-            {% for hobby in hobbies %}
-            <li>{{ hobby }}</li>
-            {% endfor %}
-        </ul>
-    </section>
 
 
 </body>

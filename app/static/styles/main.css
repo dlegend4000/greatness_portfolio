@@ -107,6 +107,7 @@ svg { overflow: hidden; }
     pointer-events: none;
     font-size: 12px;
     z-index: 1000;
+}
 
 .about-section {
     padding: 2rem;
