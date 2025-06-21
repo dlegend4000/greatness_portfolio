@@ -12,20 +12,20 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-
     try:
+        about_info = json.loads(os.getenv("ABOUT_JSON", "{}"))
         education_entries = json.loads(os.getenv("EDUCATION_JSON", "[]"))
         experiences = json.loads(os.getenv("EXPERIENCE_JSON", "[]"))
         countries_str = os.getenv("COUNTRIES", "")  # e.g., "USA,CAN,GBR"
         visited_countries = [code.strip() for code in countries_str.split(",") if code.strip()]
     except json.JSONDecodeError as e:
         print("Error parsing EXPERIENCE_JSON:", e)
-        education = []
+        about_info = {}
+        education_entries = []
         experiences = []
-        countries = []
+        visited_countries = []
 
-
-    return render_template('index.html', title="MLH Fellow", educations=education_entries, experiences=experiences, education=education, countries=visited_countries, url=os.getenv("URL"))
+    return render_template('index.html', title="MLH Fellow", about_info=about_info, educations=education_entries, experiences=experiences, countries=visited_countries, url=os.getenv("URL"))
   
 @app.route('/hobbies')
 def hobby():
