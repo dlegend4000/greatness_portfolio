@@ -1,14 +1,19 @@
+#!/bin/bash
 
-tmux kill-server
+# Move into your project directory
+cd ~/greatness_portfolio
 
-cd ~/greatness_portfolio || { echo "Project folder not found"; exit 1; }
+# Fetch the latest changes from GitHub and reset local files to match main branch
+git fetch && git reset origin/main --hard
 
-git fetch
-git reset --hard origin/main
+# Activate your virtual environment
+source python3-virtualenv/bin/activate
 
-# Activate virtual environment and install dependencies
-source ~/greatness_portfolio/python3-virtualenv/bin/activate
+# Install any new Python dependencies
 pip install -r requirements.txt
 
-# Start a new detached tmux session that runs the Flask server
-tmux new-session -d -s flask_server "cd ~/greatness_portfolio && source venv/bin/activate && flask run --host=0.0.0.0"
+# Restart your systemd service to apply new changes
+sudo systemctl restart myportfolio.service
+
+# Optionally, print status
+sudo systemctl status myportfolio.service --no-pager
