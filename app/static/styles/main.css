@@ -227,3 +227,244 @@ svg { overflow: hidden; }
   margin-bottom: 0.5em;       
 
 }
+
+/* === Dark Theme for Timeline Page === */
+body {
+    background-color: #181c1b !important;
+    color: #a8ff60 !important;
+}
+
+.navbar, .navbar-light, .navbar-expand-lg, .navbar-nav .nav-link.active {
+    background-color: #101312 !important;
+    color: #a8ff60 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #a8ff60 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #1aff5c !important;
+}
+
+.card {
+    background: linear-gradient(135deg, #232d28 80%, #1a2e1a 100%);
+    border: 1px solid #1aff5c;
+    color: #a8ff60;
+    box-shadow: 0 4px 24px 0 rgba(40,255,120,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 32px 0 rgba(40,255,120,0.18);
+    border-color: #a8ff60;
+}
+
+.card-title, .card-subtitle, .card-text, .text-muted {
+    color: #a8ff60 !important;
+}
+
+.btn-primary {
+    background-color: #1aff5c !important;
+    border-color: #1aff5c !important;
+    color: #181c1b !important;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #a8ff60 !important;
+    color: #101312 !important;
+    border-color: #a8ff60 !important;
+}
+
+.form-control, textarea.form-control {
+    background-color: #232d28 !important;
+    color: #a8ff60 !important;
+    border: 1px solid #1aff5c !important;
+}
+
+.form-label {
+    color: #a8ff60 !important;
+}
+
+::-webkit-input-placeholder { color: #5aff8e !important; }
+::-moz-placeholder { color: #5aff8e !important; }
+:-ms-input-placeholder { color: #5aff8e !important; }
+::placeholder { color: #5aff8e !important; }
+
+/* Interactive hover for Gravatar images */
+.card-body img.rounded-circle {
+    border: 2px solid #1aff5c;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.card-body img.rounded-circle:hover {
+    box-shadow: 0 0 16px #1aff5c;
+    border-color: #a8ff60;
+}
+
+/* Timeline header */
+h2.text-center.mb-4 {
+    color: #1aff5c !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #1aff5c33;
+}
+
+/* Custom scrollbar for dark mode */
+body::-webkit-scrollbar {
+    width: 10px;
+    background: #232d28;
+}
+body::-webkit-scrollbar-thumb {
+    background: #1aff5c;
+    border-radius: 8px;
+}
+
+/* Make sure links are green and interactive */
+a, a:visited {
+    color: #1aff5c;
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: #a8ff60;
+}
+
+/* === Consistent Dark Theme Overrides === */
+
+/* Banner and header backgrounds */
+.banner, .profile, .about-section, .education-section, .experience-section, .hobbies-section, .navbar, .navbar-light, .navbar-expand-lg, .navbar-nav .nav-link.active, header.navbar {
+    background-color: #101312 !important;
+    color: #a8ff60 !important;
+    border: none !important;
+}
+
+.profile h1, .about-section h2, .education-section h2, .experience-section h2, .hobbies-section h2 {
+    color: #a8ff60 !important;
+    text-shadow: 0 2px 8px #1aff5c33;
+}
+
+.profile img {
+    border: 4px solid #1aff5c;
+    background: #232d28;
+}
+
+/* Section containers */
+.about-section, .education-section, .experience-section, .hobbies-section {
+    background-color: #181c1b !important;
+    color: #eaffd0 !important;
+}
+
+.card-title, .card-subtitle, .card-text, .text-muted, .about-section p, .education-section p, .experience-section p, .hobbies-section p, .card-body, .card {
+    color: #eaffd0 !important;
+}
+
+/* Make sure all nav links are readable */
+.navbar-nav .nav-link, .navbar-nav .nav-link.active {
+    color: #a8ff60 !important;
+    font-weight: 500;
+    text-shadow: 0 1px 4px #000a;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #1aff5c !important;
+}
+
+/* Remove blue from buttons and focus states */
+.btn-primary, .btn-primary:focus, .btn-primary:active {
+    background-color: #1aff5c !important;
+    border-color: #1aff5c !important;
+    color: #181c1b !important;
+    box-shadow: 0 0 0 0.2rem #1aff5c44 !important;
+}
+
+.btn-primary:hover {
+    background-color: #a8ff60 !important;
+    color: #101312 !important;
+    border-color: #a8ff60 !important;
+}
+
+/* Inputs and forms */
+.form-control, textarea.form-control {
+    background-color: #232d28 !important;
+    color: #eaffd0 !important;
+    border: 1px solid #1aff5c !important;
+}
+.form-label {
+    color: #a8ff60 !important;
+}
+
+::-webkit-input-placeholder { color: #5aff8e !important; }
+::-moz-placeholder { color: #5aff8e !important; }
+:-ms-input-placeholder { color: #5aff8e !important; }
+::placeholder { color: #5aff8e !important; }
+
+/* Card and Gravatar tweaks */
+.card {
+    background: linear-gradient(135deg, #232d28 80%, #1a2e1a 100%);
+    border: 1px solid #1aff5c;
+    color: #eaffd0;
+    box-shadow: 0 4px 24px 0 rgba(40,255,120,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 32px 0 rgba(40,255,120,0.18);
+    border-color: #a8ff60;
+}
+.card-body img.rounded-circle {
+    border: 2px solid #1aff5c;
+    background: #181c1b;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.card-body img.rounded-circle:hover {
+    box-shadow: 0 0 16px #1aff5c;
+    border-color: #a8ff60;
+}
+
+/* Section titles clarity */
+h2.text-center.mb-4, h2 {
+    color: #1aff5c !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #1aff5c33;
+}
+
+/* Custom scrollbar for dark mode */
+body::-webkit-scrollbar {
+    width: 10px;
+    background: #232d28;
+}
+body::-webkit-scrollbar-thumb {
+    background: #1aff5c;
+    border-radius: 8px;
+}
+
+/* Make sure links are green and interactive */
+a, a:visited {
+    color: #1aff5c;
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: #a8ff60;
+}
+
+/* Responsive tweaks for dark mode */
+@media (max-width: 600px) {
+    .card {
+        font-size: 0.95rem;
+    }
+    .navbar-brand img {
+        height: 32px;
+    }
+}
+
+/* Ensure h2 headings match h1 font style for consistency */
+h1, h2.text-center.mb-4, h2 {
+    font-family: "Roboto", serif !important;
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    color: #a8ff60 !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #1aff5c33;
+    margin-bottom: 1rem;
+}

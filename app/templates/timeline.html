@@ -38,7 +38,7 @@
 
   <!-- Page Content -->
   <div class="container py-5">
-    <h2 class="text-center mb-4">Timeline</h2>
+    <h2 class="text-center mb-4">My Timeline</h2>
 
     <!-- Form -->
     <form id="timelineForm" class="mb-4">
@@ -97,7 +97,7 @@
     async function loadPosts() {
       const res = await fetch('/api/timeline_post');
       const data = await res.json();
-      const posts = data.timeline_posts;
+      const posts = data; // <-- Fix: use data directly as the posts array
 
       // Sort newest first
       posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));

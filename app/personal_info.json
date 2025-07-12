@@ -15,19 +15,13 @@
 
   "education": [
     {
-      "university": "University of Galway",
-      "major":      "Software Design and Development",
-      "degree":     "Master's",
-      "location":   "Galway, Ireland",
-      "time":       "2023 – 2025"
-    },
-    {
-      "university": "Tiangong University",
-      "major":      "Chemical Engineering",
-      "degree":     "Bachelor's",
-      "location":   "Tianjin, China",
-      "time":       "2016 – 2020"
+      "university": "Dublin City University",
+      "major":      "Mechanical Engineering",
+      "degree":     "Bachelors",
+      "location":   "Dublin, Ireland",
+      "time":       "2021 – 2025"
     }
+    
   ],
 
   "experience": [
