@@ -6,3 +6,7 @@ python3-virtualenv
 flask.sqlite
 .DS_Store
 venv/
+.myenv
+myenv/
+
+
