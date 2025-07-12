@@ -91,3 +91,8 @@ def hobby():
     return render_template('hobby.html', title="Hobbies", hobbies=hobbies)
 
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
+
+
