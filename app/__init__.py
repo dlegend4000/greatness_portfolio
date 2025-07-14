@@ -8,17 +8,21 @@ from peewee import MySQLDatabase
 import datetime
 from peewee import *
 from playhouse.shortcuts import model_to_dict
+import re
 
 load_dotenv()
 app = Flask(__name__)
 
-mydb = MySQLDatabase(
-    os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-)
+if os.getenv("TESTING") == "true":
+    print("Running in test mode")
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        host=os.getenv("MYSQL_HOST"),
+        port=3306
+    )
 
 print(mydb)
 
@@ -46,14 +50,18 @@ def add_timeline_post():
     data = request.form or request.get_json()
 
     # Validate input
-    if not data.get('name') or not data.get('email') or not data.get('content'):
-        return jsonify({'error': 'Missing required fields'}), 400
+    name = data.get('name')
+    email = data.get('email')
+    content = data.get('content')
 
-    post = TimelinePost.create(
-        name=data['name'],
-        email=data['email'],
-        content=data['content']
-    )
+    if not name:
+        return jsonify({"error": "Invalid name"}), 400
+    if not content:
+        return jsonify({"error": "Invalid content"}), 400
+    if not email or not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        return jsonify({"error": "Invalid email"}), 400
+
+    post = TimelinePost.create(name=name, email=email, content=content)
     return model_to_dict(post), 201
 
 # Get API Endpoint
