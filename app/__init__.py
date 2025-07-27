@@ -41,8 +41,18 @@ class TimelinePost(Model):
     class Meta:
         database = mydb
 
-mydb.connect()
-mydb.create_tables([TimelinePost], safe=True)
+# Initialize database connection
+def init_db():
+    try:
+        mydb.connect()
+        mydb.create_tables([TimelinePost], safe=True)
+        print("Database connected successfully")
+    except Exception as e:
+        print(f"Database connection failed: {e}")
+        # Don't fail startup, let it retry later
+
+# Try to connect on startup, but don't fail if it doesn't work
+init_db()
 
 #POst API Endpoints
 @app.route('/api/timeline_post', methods=['POST'])
