@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   greatness_portfolio:
     build: .
@@ -13,7 +11,7 @@ services:
     image: jonasal/nginx-certbot:latest
     restart: always
     environment:
-      - CERTBOT_EMAIL=your-email@example.com
+      - CERTBOT_EMAIL=emmanuelkaribiye31@gmail.com
     ports:
       - "80:80"
       - "443:443"
