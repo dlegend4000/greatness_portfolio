@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Navigate to project directory
-cd /Users/emmanuelkaribiye/greatness_portfolio
+# Navigate to project directory (update this path for your VPS)
+cd ~/greatness_portfolio
 
 # Fetch latest changes and reset to origin/main
 git fetch && git reset origin/main --hard
