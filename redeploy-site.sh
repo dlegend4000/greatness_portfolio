@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Move into your project directory
-cd ~/greatness_portfolio
+# Navigate to project directory
+cd /Users/emmanuelkaribiye/greatness_portfolio
 
-# Fetch the latest changes from GitHub and reset local files to match main branch
+# Fetch latest changes and reset to origin/main
 git fetch && git reset origin/main --hard
 
-# Activate your virtual environment
-source python3-virtualenv/bin/activate
+# Stop containers to prevent out of memory issues during build
+docker compose -f docker-compose.prod.yml down
 
-# Install any new Python dependencies
-pip install -r requirements.txt
+# Build and start containers in detached mode
+docker compose -f docker-compose.prod.yml up -d --build
 
-# Restart your systemd service to apply new changes
-sudo systemctl restart myportfolio.service
-
-# Optionally, print status
-sudo systemctl status myportfolio.service --no-pager
+echo "Deployment completed successfully!"
