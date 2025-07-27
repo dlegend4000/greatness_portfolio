@@ -6,10 +6,22 @@ services:
     restart: always
     env_file:
       - .env
-    ports:
-      - "5000:5000"
     depends_on:
       - mysql
+
+  nginx:
+    image: jonasal/nginx-certbot:latest
+    restart: always
+    environment:
+      - CERTBOT_EMAIL=your-email@example.com
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./user_conf.d:/etc/nginx/user_conf.d
+    depends_on:
+      - greatness_portfolio
 
   mysql:
     image: mariadb:10.5
@@ -25,4 +37,5 @@ services:
       - mydatabase:/var/lib/mysql
 
 volumes:
-  mydatabase: 
+  mydatabase:
+  nginx_secrets: 
