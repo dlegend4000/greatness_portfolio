@@ -1,9 +1,14 @@
+/* === DARK THEME PORTFOLIO STYLES === */
+
+/* Base styles */
 p, h1, h2, h3, h4, h5, h6, button {
     font-family: "Roboto", serif;
 }
 
+/* Dark theme body */
 body {
-    background-color: #f5f5f9;
+    background-color: #181c1b !important;
+    color: #a8ff60 !important;
     background-size: cover;
     width: auto; 
     overflow-x: hidden;
@@ -11,15 +16,218 @@ body {
     margin: 0px;
 }
 
-.navbar-nav .nav-link {
-    color: white !important;
+/* Dark theme navbar */
+.navbar, .navbar-light, .navbar-expand-lg, .navbar-nav .nav-link.active, header.navbar {
+    background-color: #101312 !important;
+    color: #a8ff60 !important;
+    border: none !important;
+}
+
+.navbar-nav .nav-link, .navbar-nav .nav-link.active {
+    color: #a8ff60 !important;
+    font-weight: 500;
+    text-shadow: 0 1px 4px #000a;
     transition: color 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover {
-    color: black !important;
+    color: #1aff5c !important;
 }
 
+/* Dark theme profile section */
+.profile {
+    background-color: #101312 !important;
+    text-align: center;
+    height: 320px;
+    margin-bottom: 50px;
+    color: #a8ff60 !important;
+}
+
+.profile h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #a8ff60 !important;
+    text-shadow: 0 2px 8px #1aff5c33;
+}
+
+.profile img {
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;        
+    padding: 20px;
+    border: 4px solid #1aff5c;
+    background: #232d28;
+}
+
+.profile .profile-picture {
+    margin-bottom: 30px;
+    height: 200px;
+}
+
+/* Dark theme sections */
+.banner, .about-section, .education-section, .experience-section, .hobbies-section {
+    background-color: #101312 !important;
+    color: #a8ff60 !important;
+    border: none !important;
+}
+
+.about-section, .education-section, .experience-section, .hobbies-section {
+    background-color: #181c1b !important;
+    color: #eaffd0 !important;
+    padding: 2rem;
+    text-align: center;
+}
+
+.about-container, .education-container, .experience-container, .hobbies-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-section h2, .education-section h2, .experience-section h2, .hobbies-section h2 {
+    color: #a8ff60 !important;
+    text-shadow: 0 2px 8px #1aff5c33;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-section p, .education-section p, .experience-section p, .hobbies-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #eaffd0 !important;
+}
+
+/* Dark theme cards */
+.card {
+    background: linear-gradient(135deg, #232d28 80%, #1a2e1a 100%);
+    border: 1px solid #1aff5c;
+    color: #eaffd0;
+    box-shadow: 0 4px 24px 0 rgba(40,255,120,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 32px 0 rgba(40,255,120,0.18);
+    border-color: #a8ff60;
+}
+
+.card-title, .card-subtitle, .card-text, .text-muted, .card-body {
+    color: #eaffd0 !important;
+}
+
+/* Dark theme buttons */
+.btn-primary, .btn-primary:focus, .btn-primary:active {
+    background-color: #1aff5c !important;
+    border-color: #1aff5c !important;
+    color: #181c1b !important;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 0 0.2rem #1aff5c44 !important;
+}
+
+.btn-primary:hover {
+    background-color: #a8ff60 !important;
+    color: #101312 !important;
+    border-color: #a8ff60 !important;
+}
+
+/* Dark theme delete button */
+.btn-danger, .btn-danger:focus, .btn-danger:active {
+    background-color: #ff4757 !important;
+    border-color: #ff4757 !important;
+    color: #ffffff !important;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 0 0 0.2rem #ff475744 !important;
+}
+
+.btn-danger:hover {
+    background-color: #ff3742 !important;
+    color: #ffffff !important;
+    border-color: #ff3742 !important;
+    transform: scale(1.05);
+}
+
+.btn-danger.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+}
+
+/* Dark theme forms */
+.form-control, textarea.form-control {
+    background-color: #232d28 !important;
+    color: #eaffd0 !important;
+    border: 1px solid #1aff5c !important;
+}
+
+.form-label {
+    color: #a8ff60 !important;
+}
+
+::-webkit-input-placeholder { color: #5aff8e !important; }
+::-moz-placeholder { color: #5aff8e !important; }
+:-ms-input-placeholder { color: #5aff8e !important; }
+::placeholder { color: #5aff8e !important; }
+
+/* Dark theme images */
+.card-body img.rounded-circle {
+    border: 2px solid #1aff5c;
+    background: #181c1b;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card-body img.rounded-circle:hover {
+    box-shadow: 0 0 16px #1aff5c;
+    border-color: #a8ff60;
+}
+
+/* Dark theme headings */
+h1, h2.text-center.mb-4, h2 {
+    font-family: "Roboto", serif !important;
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    color: #a8ff60 !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #1aff5c33;
+    margin-bottom: 1rem;
+}
+
+/* Dark theme links */
+a, a:visited {
+    color: #1aff5c;
+    transition: color 0.2s;
+}
+
+a:hover, a:focus {
+    color: #a8ff60;
+}
+
+/* Custom scrollbar for dark mode */
+body::-webkit-scrollbar {
+    width: 10px;
+    background: #232d28;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #1aff5c;
+    border-radius: 8px;
+}
+
+/* Responsive tweaks for dark mode */
+@media (max-width: 600px) {
+    .card {
+        font-size: 0.95rem;
+    }
+    .navbar-brand img {
+        height: 32px;
+    }
+}
+
+/* Navigation content styles */
 .nav-content .logo-touch-target {
     display: inline-flex;
     height: 60%;
@@ -49,38 +257,11 @@ body {
     padding-right: 0px;
 }
 
-.profile {
-    background-color: #1d539f !important;
-    text-align: center;
-    height: 320px;
-    margin-bottom: 50px;
-}
-
-.profile h1 {
-        font-size: 50px;
-        font-weight: 700;
-        color: white;
-}
-
-.profile img {
-        border-radius: 50%;
-        max-width: 100%;
-        max-height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;        
-        padding: 20px;
-}
-
-.profile .profile-picture {
-    margin-bottom: 30px;
-    height: 200px;
-}
-
+/* Banner styles */
 .banner {
     padding: 20px 0px 50px 0px;
     height: 150px;
-    background-color: #1d539f;
+    background-color: #101312 !important;
 }
 
 .banner .logo {
@@ -91,380 +272,34 @@ body {
 }
 
 .banner .title {
-    color: white;
+    color: #a8ff60 !important;
     font-size: 50px;
     font-weight: 700;
 }
 
-/* styles for visited maps */
+/* List styles */
+.experience-section ul, .education-section ul, .hobbies-section ul {
+    list-style-position: inside;
+    padding-left: 0;            
+    margin-left: 1.2em;          
+}
+
+.experience-section ul li, .education-section ul li, .hobbies-section ul li {
+    margin-bottom: 0.5em;       
+    color: #eaffd0 !important;
+}
+
+/* Map styles */
 svg { overflow: hidden; }
+
 .hoverinfo {
     position: absolute;
-    background: white;
-    border: 1px solid gray;
+    background: #232d28;
+    border: 1px solid #1aff5c;
     padding: 5px;
     border-radius: 5px;
     pointer-events: none;
     font-size: 12px;
     z-index: 1000;
-}
-
-.about-section {
-    padding: 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.about-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.about-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.about-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.experience-section {
-    padding: 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.experience-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.experience-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.experience-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.experience-section ul {
-  list-style-position: inside;
-  padding-left: 0;            
-  margin-left: 1.2em;          
-}
-
-.experience-section ul li {
-  margin-bottom: 0.5em;       
-}
-
-.education-section {
-    padding: 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.education-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.education-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.education-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.education-section ul {
-  list-style-position: inside;
-  padding-left: 0;            
-  margin-left: 1.2em;          
-}
-
-.education-section ul li {
-  margin-bottom: 0.5em;       
-}
-
-.hobbies-section {
-    padding: 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.hobbies-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.hobbies-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.hobbies-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.hobbies-section ul {
-  list-style-position: inside;
-  padding-left: 0;            
-  margin-left: 1.2em;          
-}
-
-.hobbies-section ul li {
-  margin-bottom: 0.5em;       
-
-}
-
-/* === Dark Theme for Timeline Page === */
-body {
-    background-color: #181c1b !important;
-    color: #a8ff60 !important;
-}
-
-.navbar, .navbar-light, .navbar-expand-lg, .navbar-nav .nav-link.active {
-    background-color: #101312 !important;
-    color: #a8ff60 !important;
-}
-
-.navbar-nav .nav-link {
-    color: #a8ff60 !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #1aff5c !important;
-}
-
-.card {
-    background: linear-gradient(135deg, #232d28 80%, #1a2e1a 100%);
-    border: 1px solid #1aff5c;
-    color: #a8ff60;
-    box-shadow: 0 4px 24px 0 rgba(40,255,120,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 8px 32px 0 rgba(40,255,120,0.18);
-    border-color: #a8ff60;
-}
-
-.card-title, .card-subtitle, .card-text, .text-muted {
-    color: #a8ff60 !important;
-}
-
-.btn-primary {
-    background-color: #1aff5c !important;
-    border-color: #1aff5c !important;
-    color: #181c1b !important;
-    font-weight: bold;
-    transition: background 0.2s, color 0.2s;
-}
-
-.btn-primary:hover, .btn-primary:focus {
-    background-color: #a8ff60 !important;
-    color: #101312 !important;
-    border-color: #a8ff60 !important;
-}
-
-.form-control, textarea.form-control {
-    background-color: #232d28 !important;
-    color: #a8ff60 !important;
-    border: 1px solid #1aff5c !important;
-}
-
-.form-label {
-    color: #a8ff60 !important;
-}
-
-::-webkit-input-placeholder { color: #5aff8e !important; }
-::-moz-placeholder { color: #5aff8e !important; }
-:-ms-input-placeholder { color: #5aff8e !important; }
-::placeholder { color: #5aff8e !important; }
-
-/* Interactive hover for Gravatar images */
-.card-body img.rounded-circle {
-    border: 2px solid #1aff5c;
-    transition: box-shadow 0.2s, border-color 0.2s;
-}
-.card-body img.rounded-circle:hover {
-    box-shadow: 0 0 16px #1aff5c;
-    border-color: #a8ff60;
-}
-
-/* Timeline header */
-h2.text-center.mb-4 {
-    color: #1aff5c !important;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px #1aff5c33;
-}
-
-/* Custom scrollbar for dark mode */
-body::-webkit-scrollbar {
-    width: 10px;
-    background: #232d28;
-}
-body::-webkit-scrollbar-thumb {
-    background: #1aff5c;
-    border-radius: 8px;
-}
-
-/* Make sure links are green and interactive */
-a, a:visited {
-    color: #1aff5c;
-    transition: color 0.2s;
-}
-a:hover, a:focus {
-    color: #a8ff60;
-}
-
-/* === Consistent Dark Theme Overrides === */
-
-/* Banner and header backgrounds */
-.banner, .profile, .about-section, .education-section, .experience-section, .hobbies-section, .navbar, .navbar-light, .navbar-expand-lg, .navbar-nav .nav-link.active, header.navbar {
-    background-color: #101312 !important;
-    color: #a8ff60 !important;
-    border: none !important;
-}
-
-.profile h1, .about-section h2, .education-section h2, .experience-section h2, .hobbies-section h2 {
-    color: #a8ff60 !important;
-    text-shadow: 0 2px 8px #1aff5c33;
-}
-
-.profile img {
-    border: 4px solid #1aff5c;
-    background: #232d28;
-}
-
-/* Section containers */
-.about-section, .education-section, .experience-section, .hobbies-section {
-    background-color: #181c1b !important;
-    color: #eaffd0 !important;
-}
-
-.card-title, .card-subtitle, .card-text, .text-muted, .about-section p, .education-section p, .experience-section p, .hobbies-section p, .card-body, .card {
-    color: #eaffd0 !important;
-}
-
-/* Make sure all nav links are readable */
-.navbar-nav .nav-link, .navbar-nav .nav-link.active {
-    color: #a8ff60 !important;
-    font-weight: 500;
-    text-shadow: 0 1px 4px #000a;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #1aff5c !important;
-}
-
-/* Remove blue from buttons and focus states */
-.btn-primary, .btn-primary:focus, .btn-primary:active {
-    background-color: #1aff5c !important;
-    border-color: #1aff5c !important;
-    color: #181c1b !important;
-    box-shadow: 0 0 0 0.2rem #1aff5c44 !important;
-}
-
-.btn-primary:hover {
-    background-color: #a8ff60 !important;
-    color: #101312 !important;
-    border-color: #a8ff60 !important;
-}
-
-/* Inputs and forms */
-.form-control, textarea.form-control {
-    background-color: #232d28 !important;
-    color: #eaffd0 !important;
-    border: 1px solid #1aff5c !important;
-}
-.form-label {
-    color: #a8ff60 !important;
-}
-
-::-webkit-input-placeholder { color: #5aff8e !important; }
-::-moz-placeholder { color: #5aff8e !important; }
-:-ms-input-placeholder { color: #5aff8e !important; }
-::placeholder { color: #5aff8e !important; }
-
-/* Card and Gravatar tweaks */
-.card {
-    background: linear-gradient(135deg, #232d28 80%, #1a2e1a 100%);
-    border: 1px solid #1aff5c;
     color: #eaffd0;
-    box-shadow: 0 4px 24px 0 rgba(40,255,120,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 8px 32px 0 rgba(40,255,120,0.18);
-    border-color: #a8ff60;
-}
-.card-body img.rounded-circle {
-    border: 2px solid #1aff5c;
-    background: #181c1b;
-    transition: box-shadow 0.2s, border-color 0.2s;
-}
-.card-body img.rounded-circle:hover {
-    box-shadow: 0 0 16px #1aff5c;
-    border-color: #a8ff60;
-}
-
-/* Section titles clarity */
-h2.text-center.mb-4, h2 {
-    color: #1aff5c !important;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px #1aff5c33;
-}
-
-/* Custom scrollbar for dark mode */
-body::-webkit-scrollbar {
-    width: 10px;
-    background: #232d28;
-}
-body::-webkit-scrollbar-thumb {
-    background: #1aff5c;
-    border-radius: 8px;
-}
-
-/* Make sure links are green and interactive */
-a, a:visited {
-    color: #1aff5c;
-    transition: color 0.2s;
-}
-a:hover, a:focus {
-    color: #a8ff60;
-}
-
-/* Responsive tweaks for dark mode */
-@media (max-width: 600px) {
-    .card {
-        font-size: 0.95rem;
-    }
-    .navbar-brand img {
-        height: 32px;
-    }
-}
-
-/* Ensure h2 headings match h1 font style for consistency */
-h1, h2.text-center.mb-4, h2 {
-    font-family: "Roboto", serif !important;
-    font-size: 50px !important;
-    font-weight: 700 !important;
-    color: #a8ff60 !important;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px #1aff5c33;
-    margin-bottom: 1rem;
 }
