@@ -22,11 +22,7 @@ else:
         user=os.getenv("MYSQL_USER"),
         password=os.getenv("MYSQL_PASSWORD"),
         host=os.getenv("MYSQL_HOST"),
-        port=3306,
-        # Add connection pool settings
-        max_connections=20,
-        stale_timeout=300,
-        timeout=20
+        port=3306
     )
 
 print(mydb)
