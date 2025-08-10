@@ -20,8 +20,8 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.6.8'
-        # Change to your desired Python version
+        python-version: '3.8'
+        # Updated to supported Python version for Ubuntu 24.04
 
     - name: Setup Python Virtual Environment
       run: python -m venv python3-virtualenv
