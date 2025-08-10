@@ -6,9 +6,38 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests
+    env:
+      TESTING: true
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    - name: Setup Python Virtual Environment
+      run: python -m venv python3-virtualenv
+
+    - name: Install Dependencies
+      run: python3-virtualenv/bin/pip install -r requirements.txt
+
+    - name: Make test script executable
+      run: chmod +x run_test.sh
+
+    - name: Run Tests
+      run: ./run_test.sh
+
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to VPS
+    needs: test
+    if: success()
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -28,4 +57,23 @@ jobs:
 
     - name: Deploy site
       run: |
-        ssh my-vps "cd ${{ secrets.PROJECT_ROOT }} && git pull origin main && docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml up -d --build" 
+        ssh my-vps "cd ${{ secrets.PROJECT_ROOT }} && git pull origin main && docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml up -d --build"
+
+    - name: Print Container Status
+      run: |
+        ssh my-vps "cd ${{ secrets.PROJECT_ROOT }} && docker compose -f docker-compose.prod.yml ps"
+
+    - name: Send Discord Success Notification
+      if: success()
+      run: |
+        curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful! Your portfolio has been updated at https://emmanuelk.duckdns.org"
+
+  notify-failure:
+    runs-on: ubuntu-latest
+    name: Notify Deployment Failure
+    needs: [test, deploy]
+    if: failure()
+    steps:
+    - name: Send Discord Failure Notification
+      run: |
+        curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚨 Deployment Failed! Check the GitHub Actions logs for details." 
