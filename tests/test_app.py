@@ -13,13 +13,13 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         html = response.get_data(as_text=True)
         assert "<title>MLH Fellow</title>" in html
-        # TODO Add more tests relating to the home page
-        assert '<header class="navbar' in html
-        assert '<div class="profile">' in html
-        assert '<section id="about"' in html
-        assert 'id="education"' in html
-        assert 'id="experience-section"' in html
-        assert 'id="map"' in html
+        # Updated tests to match new HTML structure
+        assert '<nav class="navbar' in html
+        assert 'Welcome to My Portfolio' in html
+        assert 'About Me' in html
+        assert 'Education' in html
+        assert 'Experience' in html
+        assert 'Countries I\'ve Visited' in html
 
     def test_timeline(self):
         # Initially there should be 0 posts
