@@ -31,6 +31,47 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 - [x] Create a new page to display hobbies.
 - [x] Add a menu bar that dynamically displays other pages in the app
 
+## Testing
+
+This project includes automated testing using GitHub Actions CI/CD pipeline.
+
+### Running Tests Locally
+
+To run tests locally:
+
+```bash
+# Make sure you're in the project directory
+cd greatness_portfolio
+
+# Create virtual environment (if not already done)
+python -m venv python3-virtualenv
+
+# Activate virtual environment
+source python3-virtualenv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run tests
+./run_test.sh
+```
+
+### Automated Testing
+
+The project uses GitHub Actions for continuous integration:
+
+- **Automated testing** on every push to main branch
+- **Automated testing** on every pull request
+- **Python 3.8** environment with virtual environment
+- **Test results** visible in GitHub Actions tab
+
+### Test Coverage
+
+Current tests cover:
+- Database connection and operations
+- Flask application endpoints
+- Timeline post functionality (create, read, delete)
+- Error handling and edge cases
 
 ## Getting Started
 
